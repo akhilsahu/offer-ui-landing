@@ -9,10 +9,8 @@ import { HeroSection } from '@/components/landing/HeroSection';
 import { RegisterScreen } from '@/screens/auth/RegisterScreen';
 import { VerificationScreen } from '@/screens/auth/VerificationScreen';
 import { LoginScreen } from '@/screens/auth/LoginScreen';
-import { DashboardScreen } from '@/components/dashboard/DashboardScreen';
 import { Navigation } from '@/components/layout/Navigation';
 import { Toaster } from '@/components/ui/sonner';
-import { useEffect, useState } from 'react';
 import { BrandRegisterScreen } from '@/screens/auth/BrandRegisterScreen';
 import { PresenterRegisterScreen } from '@/screens/auth/PresenterRegisterScreen';
 import { OnboardingVerificationScreen } from '@/screens/onboarding/OnboardingVerificationScreen';
@@ -24,16 +22,7 @@ import { TermsScreen } from '@/screens/info/TermsScreen';
 
 import './App.css';
 
-// Protected route component to handle authentication
-function ProtectedRoute({ children }: { children: JSX.Element }) {
-  const isAuthenticated = localStorage.getItem('access_token') !== null;
 
-  if (!isAuthenticated) {
-    return <Navigate to="/login" replace />;
-  }
-
-  return children;
-}
 
 function App() {
   return (
@@ -64,14 +53,7 @@ function App() {
               <Route path="/privacy-policy" element={<PrivacyPolicyScreen />} />
               <Route path="/terms-and-conditions" element={<TermsScreen />} />
               <Route path="/login" element={<LoginScreen />} />
-              <Route
-                path="/dashboard"
-                element={
-                  <ProtectedRoute>
-                    <DashboardScreen />
-                  </ProtectedRoute>
-                }
-              />
+              
             </Routes>
           </main>
         </Router>
