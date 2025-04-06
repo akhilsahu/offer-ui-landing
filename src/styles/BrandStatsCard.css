@@ -1,0 +1,214 @@
+.brand-stats-card {
+  position: relative;
+  background: linear-gradient(135deg, #111827 0%, #0f172a 100%);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.brand-stats-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.brand-stats-card::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, 
+    #6366f1,
+    #ec4899,
+    #f59e0b,
+    #10b981,
+    #60a5fa
+  );
+  background-size: 400%;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  animation: rotate 5s linear infinite;
+}
+
+.brand-stats-card:hover::before {
+  opacity: 0.5;
+}
+
+.brand-stats-card.selected::before {
+  opacity: 1;
+  filter: brightness(1.2);
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.6);
+}
+
+.brand-stats-card.selected {
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 
+              0 0 15px rgba(99, 102, 241, 0.6),
+              0 0 30px rgba(236, 72, 153, 0.4);
+}
+
+/* Unverified brand styling */
+.brand-stats-card.unverified {
+  opacity: 0.8;
+  border-color: rgba(251, 191, 36, 0.4); /* Amber/yellow border */
+}
+
+.brand-stats-card.unverified:hover {
+  opacity: 1;
+  border-color: rgba(251, 191, 36, 0.7);
+}
+
+.brand-stats-card.unverified.selected {
+  opacity: 1;
+  border-color: rgba(251, 191, 36, 0.9);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3),
+              0 0 15px rgba(251, 191, 36, 0.5),
+              0 0 30px rgba(251, 191, 36, 0.3);
+}
+
+.verification-badge {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  background-color: rgba(251, 191, 36, 0.2); /* Amber/yellow background */
+  color: rgba(251, 191, 36, 0.9); /* Amber/yellow text */
+  font-size: 0.6rem;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-weight: 500;
+  animation: pulse 2s infinite;
+}
+
+.brand-image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: linear-gradient(135deg, #4338ca 0%, #ec4899 100%);
+  position: relative;
+  top: -1px; /* Slight adjustment to vertically center with text */
+}
+
+.brand-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.brand-initial {
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+}
+
+.brand-name {
+  background: linear-gradient(45deg, #3b82f6, #ec4899, #f59e0b);
+  -webkit-background-clip: text;
+  color: transparent;
+  background-size: 200% auto;
+  animation: textShine 3s linear infinite;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.stats-number {
+  font-size: 1.25rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, #f59e0b, #ec4899, #3b82f6);
+  -webkit-background-clip: text;
+  color: transparent;
+  background-size: 200% auto;
+  animation: textShine 3s linear infinite;
+  line-height: 1;
+}
+
+.stats-label {
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-top: 1px;
+}
+
+.click-badge {
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.1rem 0.3rem;
+  border-radius: 9999px;
+  font-size: 0.65rem;
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  max-width: 70px;
+  overflow: hidden;
+}
+
+.click-dot {
+  width: 0.25rem;
+  height: 0.25rem;
+  flex-shrink: 0;
+  background-color: #10b981;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.click-count {
+  font-weight: 600;
+  background: linear-gradient(45deg, #10b981, #3b82f6);
+  -webkit-background-clip: text;
+  color: transparent;
+  background-size: 200% auto;
+  animation: textShine 3s linear infinite;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.brand-stats-card.selected .click-dot {
+  background-color: #60a5fa;
+  animation: pulse 1s infinite;
+}
+
+.brand-stats-card.selected .brand-name,
+.brand-stats-card.selected .stats-number,
+.brand-stats-card.selected .click-count {
+  filter: brightness(1.2);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  }
+  
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0);
+  }
+  
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
+@keyframes rotate {
+  0% { background-position: 0 0; }
+  100% { background-position: 400% 0; }
+}
+
+@keyframes textShine {
+  to {
+    background-position: 200% center;
+  }
+}

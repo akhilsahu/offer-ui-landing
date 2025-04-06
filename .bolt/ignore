@@ -1,0 +1,35 @@
+# Ignore brand-related content
+src/components/presenter/
+src/components/auth/
+src/components/layout/
+src/components/onboarding/
+
+
+# Ignore migration files
+supabase/migrations/
+
+# Ignore authentication related files
+src/components/auth/
+src/screens/auth/
+
+# Ignore unrelated components
+src/components/landing/
+
+src/components/onboarding/
+
+# Ignore utility files not directly relevant to core functionality
+src/lib/fonts.ts
+src/lib/i18n.ts
+src/lib/supabase.ts
+
+# Ignore styles that aren't currently used
+src/styles/OfferCard.css
+
+# Ignore any log or temporary files
+*.log
+*.tmp
+*.temp
+
+# Ignore configuration and environment files
+.env
+.env.*

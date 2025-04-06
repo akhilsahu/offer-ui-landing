@@ -1,0 +1,140 @@
+.login-screen-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 1rem;
+}
+
+.login-screen-bg {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #0f172a, #1e293b, #111827);
+  z-index: 0;
+  overflow: hidden;
+}
+
+.login-screen-shape {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 40% 60% 60% 40% / 70% 30% 70% 30%;
+  background: linear-gradient(
+    45deg,
+    rgba(79, 70, 229, 0.1),
+    rgba(236, 72, 153, 0.1),
+    rgba(59, 130, 246, 0.1)
+  );
+  opacity: 0.6;
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.login-screen-content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.login-screen-card {
+  background: rgba(17, 24, 39, 0.7);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2.5rem 2rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 20px 50px -12px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.login-screen-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    45deg,
+    rgba(79, 70, 229, 0.05) 0%,
+    rgba(236, 72, 153, 0.05) 25%,
+    rgba(59, 130, 246, 0.05) 50%,
+    rgba(16, 185, 129, 0.05) 75%,
+    rgba(245, 158, 11, 0.05) 100%
+  );
+  z-index: -1;
+  background-size: 400% 400%;
+  animation: gradientFlow 15s ease infinite;
+}
+
+.login-screen-logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.login-screen-logo {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  border-radius: 20px;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.login-screen-logo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+.login-screen-title {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(to right, #ec4899, #8b5cf6, #3b82f6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: textShine 3s infinite linear;
+  background-size: 200% auto;
+}
+
+.login-screen-subtitle {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes textShine {
+  to { background-position: 200% center; }
+}
+
+@media (max-width: 640px) {
+  .login-screen-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .login-screen-logo {
+    width: 100px;
+    height: 100px;
+  }
+
+  .login-screen-title {
+    font-size: 1.75rem;
+  }
+}

@@ -1,0 +1,11 @@
+For all designs I ask you to make, have them be beautiful, not cookie cutter. Make webpages that are fully featured and worthy for production.
+
+By default, this template supports JSX syntax with Tailwind CSS classes, the shadcn/ui library, React hooks, and Lucide React for icons. Do not install other packages for UI themes, icons, etc unless absolutely necessary or I request them.
+Use animation and gradient color
+Also for style or css use styles directory. If they specific to component create a new sheet limit it to component
+
+Use icons from lucide-react for logos.
+Use proper directory structure and follow it strictly component and screen should be in their respective directory
+ALways have screen broken down into components.
+Use valid URLs you know exist.
+ In any form or fields wipe out all fields in the form as and when they are closed until told to do otherwise

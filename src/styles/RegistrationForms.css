@@ -1,0 +1,110 @@
+/* Gradient glow effects for registration forms */
+.registration-gradient-text {
+  background: linear-gradient(45deg, #8b5cf6, #ec4899, #3b82f6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 200% auto;
+  animation: textGradient 5s ease infinite;
+}
+
+.presenter-gradient-text {
+  background: linear-gradient(45deg, #0ea5e9, #10b981, #3b82f6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 200% auto;
+  animation: textGradient 5s ease infinite;
+}
+
+@keyframes textGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.registration-input {
+  background: rgba(17, 24, 39, 0.7) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  transition: all 0.3s ease !important;
+}
+
+.registration-input:focus {
+  border-color: rgba(139, 92, 246, 0.5) !important;
+  box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.2), 0 0 15px rgba(139, 92, 246, 0.3) !important;
+}
+
+.presenter-input {
+  background: rgba(17, 24, 39, 0.7) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  transition: all 0.3s ease !important;
+}
+
+.presenter-input:focus {
+  border-color: rgba(14, 165, 233, 0.5) !important;
+  box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.2), 0 0 15px rgba(14, 165, 233, 0.3) !important;
+}
+
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 100;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 6px;
+  background: rgba(17, 24, 39, 0.8);
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  transform: translateX(-3px);
+  background: rgba(17, 24, 39, 0.9);
+}
+
+.brand-back-button {
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.brand-back-button:hover {
+  border-color: rgba(139, 92, 246, 0.7);
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
+}
+
+.presenter-back-button {
+  border: 1px solid rgba(14, 165, 233, 0.3);
+}
+
+.presenter-back-button:hover {
+  border-color: rgba(14, 165, 233, 0.7);
+  box-shadow: 0 0 15px rgba(14, 165, 233, 0.3);
+}
+
+.brand-submit-button {
+  background: linear-gradient(45deg, #8b5cf6, #ec4899) !important;
+  border: none !important;
+  transition: all 0.3s ease !important;
+  position: relative;
+  z-index: 1;
+}
+
+.brand-submit-button:hover {
+  background: linear-gradient(45deg, #7c3aed, #db2777) !important;
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.5) !important;
+}
+
+.presenter-submit-button {
+  background: linear-gradient(45deg, #0ea5e9, #10b981) !important;
+  border: none !important;
+  transition: all 0.3s ease !important;
+  position: relative;
+  z-index: 1;
+}
+
+.presenter-submit-button:hover {
+  background: linear-gradient(45deg, #0284c7, #059669) !important;
+  box-shadow: 0 0 15px rgba(14, 165, 233, 0.5) !important;
+}

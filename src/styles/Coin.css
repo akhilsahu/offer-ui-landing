@@ -1,0 +1,318 @@
+/* Shimmer animation */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) skewX(-20deg);
+  }
+  50% {
+    transform: translateX(100%) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(-100%) skewX(-20deg);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
+
+/* Spark animation */
+@keyframes spark {
+  0% {
+    opacity: 0;
+    transform: scale(0) translate(0, 0) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1) translate(var(--tx), var(--ty)) rotate(var(--r));
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0) translate(calc(var(--tx) * 2), calc(var(--ty) * 2))
+      rotate(calc(var(--r) * 2));
+  }
+}
+
+.animate-spark {
+  animation: spark 700ms forwards;
+}
+
+/* Pulse scale animation */
+@keyframes pulse-scale {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-scale {
+  animation: pulse-scale 2s infinite;
+}
+
+/* Gradient animations */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 50% 25%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  75% {
+    background-position: 50% 75%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes warning-pulse {
+  0% {
+    background-position: 0% 50%;
+    opacity: 0.9;
+  }
+  50% {
+    background-position: 100% 50%;
+    opacity: 1;
+  }
+  100% {
+    background-position: 0% 50%;
+    opacity: 0.9;
+  }
+}
+
+/* Border glow animation */
+@keyframes border-glow {
+  0% {
+    box-shadow: 0 0 5px 2px rgba(255, 82, 82, 0.6),
+      0 0 7px rgba(255, 82, 82, 0.4), inset 0 0 3px rgba(255, 255, 255, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 10px 4px rgba(255, 82, 82, 0.8),
+      0 0 15px rgba(255, 65, 65, 0.6), inset 0 0 3px rgba(255, 255, 255, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 5px 2px rgba(255, 82, 82, 0.6),
+      0 0 7px rgba(255, 82, 82, 0.4), inset 0 0 3px rgba(255, 255, 255, 0.4);
+  }
+}
+
+/* Coin wrapper */
+.coin-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Coin styling base */
+.coin-badge {
+  position: relative;
+  font-size: 1.125rem;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  margin: 0.125rem;
+  transition-property: all;
+  transition-duration: 300ms;
+  background-size: 300% 300%;
+  border-radius: 9999px;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2),
+    inset 0 1px 3px rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 7rem;
+  justify-content: center;
+}
+
+/* Normal balance styling */
+.coin-badge-normal {
+  background: linear-gradient(
+    135deg,
+    #ff9d00,
+    #ff6a88,
+    #ffdf40,
+    #ff6b6b,
+    #34e89e,
+    #4a9feb,
+    #ffbe0b
+  );
+  border-color: #ffc107;
+  color: #703800;
+  animation: gradient-shift 8s ease infinite;
+}
+
+.coin-badge-normal:hover {
+  animation: pulse-scale 2s infinite, gradient-shift 5s ease infinite;
+  background: linear-gradient(
+    135deg,
+    #ff9d00,
+    #ff6a88,
+    #ffdf40,
+    #ff6b6b,
+    #34e89e,
+    #4a9feb,
+    #ffbe0b,
+    #34e89e
+  );
+  background-size: 300% 300%;
+  box-shadow: 0 2px 12px rgba(255, 193, 7, 0.6),
+    inset 0 1px 3px rgba(255, 255, 255, 0.8);
+}
+
+/* Low balance styling */
+.coin-badge-low {
+  background: linear-gradient(
+    135deg,
+    #ff5a5a,
+    #ff7e7e,
+    #ff8585,
+    #ff9494,
+    #ff6b6b,
+    #ff8282,
+    #ff7575
+  );
+  border: 2px solid rgba(255, 85, 85, 0.3);
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  animation: warning-pulse 3s ease infinite,
+    border-glow 1.5s ease-in-out infinite;
+  box-shadow: 0 0 10px 3px rgba(255, 82, 82, 0.7),
+    inset 0 0 3px rgba(255, 255, 255, 0.4);
+}
+
+.coin-badge-low:hover {
+  animation: pulse-scale 1.5s infinite, warning-pulse 2s ease infinite,
+    border-glow 1.2s ease-in-out infinite;
+  background: linear-gradient(
+    135deg,
+    #ff6b6b,
+    #ff8c8c,
+    #ff7a7a,
+    #ff9090,
+    #ff8080,
+    #ff9999,
+    #ff8585
+  );
+  background-size: 200% 200%;
+  box-shadow: 0 0 15px 5px rgba(255, 50, 50, 0.8),
+    inset 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.coin-badge-low::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+  border-radius: 9999px;
+  background: linear-gradient(
+    45deg,
+    #ff3333,
+    #ff5252,
+    #ff7070,
+    #ff5252,
+    #ff3333
+  );
+  background-size: 200% 200%;
+  z-index: -1;
+  animation: gradient-shift 3s linear infinite;
+  filter: blur(8px);
+  opacity: 0.7;
+}
+
+.coin-icon {
+  position: relative;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.coin-icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: rgb(180, 83, 9);
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.coin-badge-low .coin-icon svg {
+  color: #ffcc00;
+  filter: drop-shadow(0 0 3px rgba(255, 255, 0, 0.5));
+}
+
+.coin-badge:hover .coin-icon svg {
+  transform: scale(1.1);
+}
+
+.shimmer-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+    to right,
+    transparent,
+    rgba(254, 243, 199, 0.6),
+    transparent
+  );
+}
+
+.shimmer-low {
+  background-image: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
+}
+
+.sparks-container {
+  position: absolute;
+  inset: 0;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.spark {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background-color: #facc15;
+  border-radius: 9999px;
+  z-index: 10;
+  box-shadow: 0 0 3px 1px rgba(255, 204, 0, 0.7);
+}
+
+.spark-low {
+  background-color: #ffcc00;
+  box-shadow: 0 0 4px 2px rgba(255, 204, 0, 0.8);
+}
+
+/* Low balance text styles */
+.low-balance-text {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 800;
+  color: #ffffff;
+  background: linear-gradient(to right, #ff3333, #ff9999);
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid rgba(255, 85, 85, 0.4);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 6px rgba(255, 50, 50, 0.5);
+  animation: pulse-scale 1.5s infinite;
+  margin-top: 0.25rem;
+}
+
+.points-value {
+  margin-right: 4px;
+}
